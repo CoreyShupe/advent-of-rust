@@ -37,3 +37,11 @@ impl InputParser for Chars<'static> {
         input.chars()
     }
 }
+
+impl InputParser for &'static str {
+    type ResolvedType<'a> = &'a str;
+
+    fn parse_input(input: &str) -> Self::ResolvedType<'_> {
+        input
+    }
+}

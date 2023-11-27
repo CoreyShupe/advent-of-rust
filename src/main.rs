@@ -1,3 +1,5 @@
+#![allow(unused_variables)]
+
 use crate::aoc::Year;
 use crate::switch::{DaySwitch, Part, YearSwitch};
 use std::path::PathBuf;
@@ -11,7 +13,7 @@ pub mod year {
 }
 
 fn main() {
-    solve(YearSwitch::Y2015, DaySwitch::Day2, Part::Part2);
+    solve(YearSwitch::Y2015, DaySwitch::Day4, Part::Part2);
 }
 
 pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {

@@ -16,6 +16,7 @@ macro_rules! impl_year {
                 part: $crate::switch::Part,
                 input: String,
             ) -> anyhow::Result<()> {
+                #[allow(unreachable_patterns)]
                 match day {
                     $($crate::switch::DaySwitch::$day => $day::solve_raw(&input, part),)*
                     _ => unimplemented!(),
