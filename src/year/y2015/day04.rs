@@ -1,5 +1,4 @@
 use crate::aoc::{Day, InputParser};
-use std::time::SystemTime;
 
 pub struct Day4;
 

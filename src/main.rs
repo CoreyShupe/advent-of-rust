@@ -19,7 +19,7 @@ macro_rules! solve {
 }
 
 fn main() {
-    solve!(Y2015, Day5, Part1);
+    solve!(Y2015, Day5, Part2);
 }
 
 pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {
