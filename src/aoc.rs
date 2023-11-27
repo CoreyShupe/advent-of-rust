@@ -1,4 +1,4 @@
-use std::str::Chars;
+use std::str::{Chars, Lines};
 
 use crate::switch::{DaySwitch, Part};
 
@@ -43,5 +43,13 @@ impl InputParser for &'static str {
 
     fn parse_input(input: &str) -> Self::ResolvedType<'_> {
         input
+    }
+}
+
+impl InputParser for Lines<'static> {
+    type ResolvedType<'a> = Lines<'a>;
+
+    fn parse_input(input: &str) -> Self::ResolvedType<'_> {
+        input.lines()
     }
 }
