@@ -2,12 +2,14 @@ use std::fmt::Formatter;
 
 pub enum YearSwitch {
     Y2015,
+    Y2023,
 }
 
 impl std::fmt::Display for YearSwitch {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
             YearSwitch::Y2015 => write!(f, "2015"),
+            YearSwitch::Y2023 => write!(f, "2023"),
         }
     }
 }

@@ -10,6 +10,7 @@ mod switch;
 
 pub mod year {
     pub mod y2015;
+    pub mod y2023;
 }
 
 macro_rules! solve {
@@ -19,7 +20,8 @@ macro_rules! solve {
 }
 
 fn main() {
-    solve!(Y2015, Day5, Part2);
+    // solve!(Y2023, Day1, Part1);
+    solve!(Y2023, Day1, Part2);
 }
 
 pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {
@@ -28,6 +30,7 @@ pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {
 
     if let Err(err) = match year {
         YearSwitch::Y2015 => year::y2015::Y2015::solve(day, part, input),
+        YearSwitch::Y2023 => year::y2023::Y2023::solve(day, part, input),
     } {
         eprintln!("Error: {}", err);
     }
