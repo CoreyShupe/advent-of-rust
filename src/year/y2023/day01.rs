@@ -15,7 +15,6 @@ pub mod part2 {
         output: u32,
     }
 
-    #[derive(Debug)]
     struct ActiveCapture<I: Iterator<Item = char>> {
         value_iterator: Peekable<Skip<I>>,
         output: u32,
@@ -147,8 +146,6 @@ pub mod part2 {
                 }
 
                 let new_captures: Vec<ActiveCapture<B>> = capture_function(&into_f, item);
-
-                println!("New captures: {:?}", new_captures);
 
                 captures = match captures.into_iter().fold(
                     CaptureResult::NewCaptures(new_captures),
