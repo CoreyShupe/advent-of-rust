@@ -18,10 +18,10 @@ impl InputParser for GamesParser {
                 let mut current_round: Option<[usize; 3]> = None;
 
                 let char_iter = line.chars();
-                let mut char_iter = char_iter.skip_while(|c| *c != ':').skip(2).enumerate();
+                let mut char_iter = char_iter.skip_while(|c| *c != ':').skip(2);
 
                 let mut latest_number = None;
-                while let Some((index, next)) = char_iter.next() {
+                while let Some(next) = char_iter.next() {
                     if next.is_ascii_digit() {
                         // this is always followed by a space
                         latest_number = match latest_number {
@@ -29,7 +29,7 @@ impl InputParser for GamesParser {
                             None => Some(format!("{}", next)),
                         };
                     } else {
-                        let (last_position, marker) = char_iter.next().unwrap();
+                        let marker = char_iter.next().unwrap();
                         let value = latest_number.take().unwrap().parse().unwrap();
                         match marker {
                             'r' => {
@@ -56,13 +56,13 @@ impl InputParser for GamesParser {
                             _ => unreachable!(),
                         };
 
-                        let splitter = char_iter.find(|(_, x)| *x == ',' || *x == ';');
+                        let splitter = char_iter.find(|x| *x == ',' || *x == ';');
                         match splitter {
-                            Some((position, ',')) => {
+                            Some(',') => {
                                 char_iter.advance_by(1).unwrap();
                                 continue;
                             }
-                            Some((position, ';')) => {
+                            Some(';') => {
                                 if let Some(round) = current_round.take() {
                                     rounds.push(round);
                                 }
