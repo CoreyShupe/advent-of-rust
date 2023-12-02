@@ -1,4 +1,5 @@
 #![allow(unused_variables)]
+#![feature(iter_advance_by)]
 
 use crate::aoc::Year;
 use crate::switch::{DaySwitch, Part, YearSwitch};
@@ -20,8 +21,8 @@ macro_rules! solve {
 }
 
 fn main() {
-    // solve!(Y2023, Day1, Part1);
-    solve!(Y2023, Day1, Part2);
+    solve!(Y2023, Day2, Part1);
+    solve!(Y2023, Day2, Part2);
 }
 
 pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {

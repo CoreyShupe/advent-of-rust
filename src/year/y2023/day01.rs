@@ -131,7 +131,7 @@ pub mod part2 {
         >(
             capture_function: F2,
             into_f: F,
-            value_iterator: I,
+            value_iterator: &mut I,
         ) -> Option<u32> {
             let mut captures: Vec<ActiveCapture<B>> = vec![];
 
@@ -172,16 +172,19 @@ pub mod part2 {
             return None;
         }
 
+        let mut iter = full_string.chars();
         let forwards = capture_value_inner(
             forward_capture_match,
             Into::<ActiveCapture<Chars<'static>>>::into,
-            full_string.chars(),
+            &mut iter,
         )
         .unwrap();
+
+        let mut iter = iter.rev();
         let backwards = capture_value_inner(
             backward_capture_match,
             Into::<ActiveCapture<Rev<Chars<'static>>>>::into,
-            full_string.chars().rev(),
+            &mut iter,
         )
         .unwrap_or(forwards);
         return format!("{}{}", forwards, backwards).parse().unwrap();
