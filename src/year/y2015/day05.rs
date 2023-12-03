@@ -7,7 +7,7 @@ pub struct Day5;
 impl Day for Day5 {
     type InputType = Lines<'static>;
 
-    fn part1(input: Lines) -> anyhow::Result<()> {
+    fn part1(input: Lines) -> anyhow::Result<String> {
         let vowels = HashSet::from(['a', 'e', 'i', 'o', 'u']);
 
         let mut nice_lines = 0;
@@ -43,11 +43,10 @@ impl Day for Day5 {
         }
 
         let solution = nice_lines;
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 
-    fn part2(input: Lines) -> anyhow::Result<()> {
+    fn part2(input: Lines) -> anyhow::Result<String> {
         let mut nice_lines = 0;
 
         for line in input {
@@ -84,7 +83,6 @@ impl Day for Day5 {
         }
 
         let solution = nice_lines;
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 }

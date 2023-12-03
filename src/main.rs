@@ -16,13 +16,17 @@ pub mod year {
 
 macro_rules! solve {
     ($year:ident, $day:ident, $part:ident) => {
-        solve(YearSwitch::$year, DaySwitch::$day, Part::$part);
+        solve(YearSwitch::$year, $day, Part::$part);
     };
 }
 
 fn main() {
-    solve!(Y2023, Day3, Part1);
-    solve!(Y2023, Day3, Part2);
+    _main_helper(DaySwitch::Day3);
+}
+
+fn _main_helper(day: DaySwitch) {
+    solve!(Y2023, day, Part1);
+    solve!(Y2023, day, Part2);
 }
 
 pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {

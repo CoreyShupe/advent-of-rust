@@ -5,7 +5,7 @@ pub struct Day4;
 impl Day for Day4 {
     type InputType = &'static str;
 
-    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let mut incr = 1;
         loop {
             let test = md5::compute(format!("{}{}", input, incr));
@@ -14,11 +14,10 @@ impl Day for Day4 {
             }
             incr += 1;
         }
-        println!("Solution: {}", incr);
-        Ok(())
+        Ok(format!("{}", incr))
     }
 
-    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let mut incr = 1;
         loop {
             let test = md5::compute(format!("{}{}", input, incr));
@@ -27,7 +26,6 @@ impl Day for Day4 {
             }
             incr += 1;
         }
-        println!("Solution: {}", incr);
-        Ok(())
+        Ok(format!("{}", incr))
     }
 }

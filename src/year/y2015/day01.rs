@@ -7,19 +7,18 @@ pub struct Day1;
 impl Day for Day1 {
     type InputType = Chars<'static>;
 
-    fn part1(input: Chars) -> anyhow::Result<()> {
-        println!(
-            "Solution: {}",
+    fn part1(input: Chars) -> anyhow::Result<String> {
+        Ok(format!(
+            "{}",
             input.fold(0, |acc, c| match c {
                 '(' => acc + 1,
                 ')' => acc - 1,
                 _ => acc,
             })
-        );
-        Ok(())
+        ))
     }
 
-    fn part2(input: Chars) -> anyhow::Result<()> {
+    fn part2(input: Chars) -> anyhow::Result<String> {
         let mut acc = 0;
         let mut pointer = 1;
         for c in input {
@@ -33,7 +32,6 @@ impl Day for Day1 {
             }
             pointer += 1;
         }
-        println!("Solution: {}", pointer);
-        Ok(())
+        Ok(format!("{}", pointer))
     }
 }

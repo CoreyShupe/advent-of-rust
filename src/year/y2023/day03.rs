@@ -149,18 +149,17 @@ impl InputParser for PartTableParser {
 impl Day for Day3 {
     type InputType = PartTableParser;
 
-    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let solution: usize = input
             .order_numbers
             .iter()
             .filter(|order_number| order_number.check_against(&input.symbols))
             .map(|order_number| order_number.value)
             .sum();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 
-    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let solution: usize = input
             .symbols
             .iter()
@@ -176,7 +175,6 @@ impl Day for Day3 {
             .filter(|gear_associations| gear_associations.len() == 2)
             .map(|gear_associations| gear_associations.iter().fold(1, |acc, x| acc * x))
             .sum();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 }

@@ -14,6 +14,7 @@ impl std::fmt::Display for YearSwitch {
     }
 }
 
+#[derive(Copy, Clone)]
 pub enum DaySwitch {
     Day1,
     Day2,

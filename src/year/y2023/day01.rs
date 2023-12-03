@@ -194,7 +194,7 @@ pub mod part2 {
 impl Day for Day1 {
     type InputType = Lines<'static>;
 
-    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let solution: u32 = input
             .map(|line| {
                 let mut chars = line.chars();
@@ -204,13 +204,11 @@ impl Day for Day1 {
                 return format!("{}{}", f, z).parse::<u32>().unwrap();
             })
             .sum();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 
-    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let solution: u32 = input.map(|line| capture_value(line)).sum();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 }

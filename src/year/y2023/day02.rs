@@ -97,7 +97,7 @@ pub struct Game {
 impl Day for Day2 {
     type InputType = GamesParser;
 
-    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let solution: usize = input
             .iter()
             .filter(|game| {
@@ -107,11 +107,10 @@ impl Day for Day2 {
             })
             .map(|game| game.game_id)
             .sum();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 
-    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let solution: usize = input
             .iter()
             .map(|game| {
@@ -124,7 +123,6 @@ impl Day for Day2 {
                 maxes[0] * maxes[1] * maxes[2]
             })
             .sum();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 }

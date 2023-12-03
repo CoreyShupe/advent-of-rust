@@ -11,7 +11,7 @@ pub struct Day3;
 impl Day for Day3 {
     type InputType = Chars<'static>;
 
-    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part1(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let mut pointer = Pointer { x: 0, y: 0 };
         let mut visited = HashSet::new();
         visited.insert((0, 0));
@@ -29,11 +29,10 @@ impl Day for Day3 {
         }
 
         let solution = visited.len();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 
-    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<()> {
+    fn part2(input: <Self::InputType as InputParser>::ResolvedType<'_>) -> anyhow::Result<String> {
         let mut pointer = Pointer { x: 0, y: 0 };
         let mut robo_pointer = Pointer { x: 0, y: 0 };
         let mut state = true;
@@ -64,7 +63,6 @@ impl Day for Day3 {
         }
 
         let solution = visited.len();
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("Solution: {}", solution))
     }
 }

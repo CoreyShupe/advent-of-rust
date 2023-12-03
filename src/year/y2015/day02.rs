@@ -45,7 +45,7 @@ pub struct Day2;
 impl Day for Day2 {
     type InputType = Day2InputParser;
 
-    fn part1(input: Vec<Dimensions>) -> anyhow::Result<()> {
+    fn part1(input: Vec<Dimensions>) -> anyhow::Result<String> {
         let solution = input.iter().fold(0, |acc, dimensions| {
             let mut smallest_area = usize::MAX;
             let mut total_area = 0;
@@ -61,11 +61,10 @@ impl Day for Day2 {
             }
             acc + smallest_area + total_area
         });
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 
-    fn part2(input: Vec<Dimensions>) -> anyhow::Result<()> {
+    fn part2(input: Vec<Dimensions>) -> anyhow::Result<String> {
         let solution = input.iter().fold(0, |acc, dimensions| {
             let lowest_2 = match [
                 dimensions.height >= dimensions.width,
@@ -83,7 +82,6 @@ impl Day for Day2 {
             let bow_length = dimensions.length * dimensions.height * dimensions.width;
             acc + bow_length + ribbon_length
         });
-        println!("Solution: {}", solution);
-        Ok(())
+        Ok(format!("{}", solution))
     }
 }
