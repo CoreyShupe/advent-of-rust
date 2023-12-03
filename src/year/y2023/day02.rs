@@ -53,7 +53,7 @@ impl InputParser for GamesParser {
                                     current_round = Some([0, 0, value]);
                                 }
                             }
-                            _ => unreachable!(),
+                            _ => unreachable!("Invalid input."),
                         };
 
                         let splitter = char_iter.find(|x| *x == ',' || *x == ';');
@@ -75,7 +75,7 @@ impl InputParser for GamesParser {
                                 }
                                 break;
                             }
-                            _ => panic!(),
+                            _ => unreachable!(),
                         }
                     }
                 }
@@ -93,8 +93,6 @@ pub struct Game {
     game_id: usize,
     rounds: Vec<[usize; 3]>,
 }
-
-pub mod part1 {}
 
 impl Day for Day2 {
     type InputType = GamesParser;

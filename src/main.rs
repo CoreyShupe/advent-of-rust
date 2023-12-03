@@ -21,8 +21,8 @@ macro_rules! solve {
 }
 
 fn main() {
-    solve!(Y2023, Day2, Part1);
-    solve!(Y2023, Day2, Part2);
+    solve!(Y2023, Day3, Part1);
+    solve!(Y2023, Day3, Part2);
 }
 
 pub fn solve(year: YearSwitch, day: DaySwitch, part: Part) {
