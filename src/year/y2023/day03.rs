@@ -173,7 +173,7 @@ impl Day for Day3 {
                     .collect::<Vec<usize>>()
             })
             .filter(|gear_associations| gear_associations.len() == 2)
-            .map(|gear_associations| gear_associations.iter().fold(1, |acc, x| acc * x))
+            .map(|gear_associations| gear_associations[0] * gear_associations[1])
             .sum();
         Ok(format!("{}", solution))
     }
