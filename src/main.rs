@@ -2,6 +2,7 @@
 #![feature(iter_advance_by)]
 #![feature(iter_map_windows)]
 #![feature(iter_next_chunk)]
+#![feature(iter_array_chunks)]
 
 use crate::aoc::Year;
 use crate::switch::{DaySwitch, Part, YearSwitch};
@@ -17,7 +18,7 @@ pub mod year {
 }
 
 fn main() {
-    _main_helper(YearSwitch::Y2023, DaySwitch::Day4);
+    _main_helper(YearSwitch::Y2023, DaySwitch::Day5);
 }
 
 fn _main_helper(year: YearSwitch, day: DaySwitch) {
