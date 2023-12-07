@@ -5,13 +5,13 @@ use std::collections::HashMap;
 #[repr(u8)]
 #[derive(Copy, Clone, Ord, PartialOrd, Eq, PartialEq, Debug)]
 pub enum HandType {
-    Five = 0,
-    Four = 1,
-    FullHouse = 2,
+    Five = 6,
+    Four = 5,
+    FullHouse = 4,
     Three = 3,
-    TwoPair = 4,
-    OnePair = 5,
-    HighCard = 6,
+    TwoPair = 2,
+    OnePair = 1,
+    HighCard = 0,
 }
 
 #[derive(Debug)]
@@ -43,9 +43,9 @@ fn count_winnings(mut segments: Vec<Segment>) -> usize {
             }
             Ordering::Equal
         } else if subject.best_hand > object.best_hand {
-            Ordering::Less
-        } else {
             Ordering::Greater
+        } else {
+            Ordering::Less
         }
     });
 
