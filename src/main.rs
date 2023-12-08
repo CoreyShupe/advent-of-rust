@@ -18,7 +18,7 @@ pub mod year {
 }
 
 fn main() {
-    _main_helper(YearSwitch::Y2023, DaySwitch::Day7);
+    _main_helper(YearSwitch::Y2023, DaySwitch::Day8);
 }
 
 fn _main_helper(year: YearSwitch, day: DaySwitch) {
