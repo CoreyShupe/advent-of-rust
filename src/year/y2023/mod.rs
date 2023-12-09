@@ -8,5 +8,6 @@ impl_year!(Y2023: [
     day05::Day5,
     day06::Day6,
     day07::Day7,
-    day08::Day8
+    day08::Day8,
+    day09::Day9
 ]);
